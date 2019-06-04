@@ -21,7 +21,9 @@
 /** 
    如果想自定义名字，可以把配置文件里面 eureka1 改成你想要的内容 
    例如 application-dev.xml
-   这时你的启动配置为 spring.profiles.active=dev */
+   这时你的启动配置为 spring.profiles.active=dev 
+   */
+   
 spring.profiles.active=eureka1
 
 spring.profiles.active=eureka2
@@ -35,7 +37,7 @@ spring.profiles.active=eureka3
 - 把你的项目打成一个jar包，然后用命令的形式启动，启动命令为
 ```
 # --spring.profiles.active 用来指定配置文件。
-java -jar  .\target\eureka-0.0.1-SNAPSHOT.jar --spring.profiles.active=eureka3 
+java -jar  .\target\eureka-1.0.0-SNAPSHOT.jar --spring.profiles.active=eureka3 
 ```
 
 ---
@@ -46,9 +48,10 @@ java -jar  .\target\eureka-0.0.1-SNAPSHOT.jar --spring.profiles.active=eureka3
 ```
 # -jar 后面的内容为你 maven 打包后jar包的路径 
 # --spring.profiles.active 用来指定配置文件。
-start cmd /k "java -jar D:\Desktop\target\eureka-0.0.1-SNAPSHOT.jar --spring.profiles.active=eureka1"
-start cmd /k "java -jar D:\Desktop\target\eureka-0.0.1-SNAPSHOT.jar --spring.profiles.active=eureka2"
-start cmd /k "java -jar D:\Desktop\target\eureka-0.0.1-SNAPSHOT.jar --spring.profiles.active=eureka3"
+# 喜欢 powershell 的同学可以把 cmd /k 替换成 powershell (win10建议用powershell)
+start cmd /k "java -jar D:\Desktop\target\eureka-1.0.0-SNAPSHOT.jar --spring.profiles.active=eureka1"
+start cmd /k "java -jar D:\Desktop\target\eureka-1.0.0-SNAPSHOT.jar --spring.profiles.active=eureka2"
+start cmd /k "java -jar D:\Desktop\target\eureka-1.0.0-SNAPSHOT.jar --spring.profiles.active=eureka3"
 ```
  - 右击保存，然后把文件名后缀改成 .bat 结尾 如：startAllEureka.bat。
 -  双击启动，就可以一次性把多个 eureka 启动了， mac 同理 。
