@@ -15,8 +15,8 @@
 # 使用顺序
 1. 检查 SringBoot 版本 和 SpringCloud 的版本是否和 Eureka 一致 
 
-   * 本项目 SpringBoot 版本： 2.2.0.BUILD-SNAPSHOT 
-   * 本项目 SpringCloud 版本： Hoxton.BUILD-SNAPSHOT
+   * 本项目 SpringBoot 版本： 2.1.5.RELEASE 
+   * 本项目 SpringCloud 版本： Greenwich.SR1
  
 2. 启动 注册中心 (注册中心必须先启动) 
 3. application.yml 配置文件配置你 git 配置仓库的位置
