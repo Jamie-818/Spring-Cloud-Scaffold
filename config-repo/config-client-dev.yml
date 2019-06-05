@@ -1,0 +1,5 @@
+configuration:
+  environment: dev
+
+test:
+  variable: "测试下配置中心是否获取到配置"
