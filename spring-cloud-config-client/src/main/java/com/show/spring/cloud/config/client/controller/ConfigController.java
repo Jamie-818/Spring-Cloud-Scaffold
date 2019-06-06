@@ -9,7 +9,7 @@ import java.util.Map;
 
 /**
  * 测试是否拿到配置文件
- * @author xuanweiyao
+ * @author show
  * @date 11:17 2019/6/5
  */
 @RestController
@@ -23,7 +23,7 @@ public class ConfigController {
 
     /**
      * 获取配置中心配置测试
-     * @author xuanweiyao
+     * @author show
      * @date 11:21 2019/6/5
      */
     @GetMapping("Config")
