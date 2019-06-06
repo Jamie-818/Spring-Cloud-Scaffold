@@ -1,6 +1,5 @@
 package com.show.spring.cloud.config.client.controller;
 
-import com.netflix.discovery.util.StringUtil;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

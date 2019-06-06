@@ -29,9 +29,9 @@
        config:
          server:
            git:
-             uri: https://github.com/xxx/config-repo.git
-             username: xxxx(git仓库账号)
-             password: xxxx(git仓库密码)
+             uri: https://github.com/MrXuan3168/Spring-Cloud-Config-Repo.git
+             username: 1004108488@qq.com
+             #password: xxxx(git仓库密码) #如果仓库是公开的，可以不配密码
    eureka:
      client:
        service-url:
@@ -63,11 +63,11 @@ spring:
 ![配置中心架构](./mdimg/配置中心架构.png)
 - 配置中心本质上是从网上的git仓库下载配置文件到本地。
 ```
-2019-05-26 15:33:08.503  INFO 12688 --- [nio-8090-exec-4] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: file:/C:/Users/show/AppData/Local/Temp/config-repo-5895602369421693407/eureka1-dev.yml
+2019-06-05 14:34:02.306  INFO 29440 --- [nio-8090-exec-1] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: file:/C:/Users/show/AppData/Local/Temp/config-repo-1965805280546469012/config-client-dev.yml
 ```
 你会看到有该日志，证明就是从git上面下载到本地的，我们需要更新的时候，只需要改 Git仓库上的配置文件即可。
 
 ---
 
 #其他微服务如何使用配置中心
-1. 添加依赖
+ - 请查看 spring-cloud-config-client 项目说明

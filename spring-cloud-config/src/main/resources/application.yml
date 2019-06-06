@@ -5,9 +5,9 @@ spring:
     config:
       server:
         git:
-          uri: https://gitee.com/qshow/config-repo.git
-          username: xxxx
-          password: xxx
+          uri: https://github.com/MrXuan3168/Spring-Cloud-Config-Repo.git   #git仓库地址，这里存的是各个微服务的配置文件
+          username: 1004108488@qq.com
+          # password: xxx  #配置仓库如果是公开的，可以不输入密码
 eureka:
   client:
     service-url:
