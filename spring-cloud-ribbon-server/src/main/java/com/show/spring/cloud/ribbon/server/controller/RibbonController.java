@@ -16,25 +16,38 @@ import java.util.Map;
 @RequestMapping("/RibbonServer")
 @Slf4j
 public class RibbonController {
-
-    @GetMapping("/RibbonGetTest")
-    public Map<String, Object> RibbonGetTest(String requestMsg) {
+    /**
+     * 测试 GET访问是否正常
+     * @Method: GET
+     * @author show
+     * @date 15:38 2019/6/9
+     * @param requestMsg 入参
+     */
+    @GetMapping("/RibbonTest")
+    public Map<String, Object> ribbonGetTest(String requestMsg) {
 
         log.info("接收到数据为：{}", requestMsg);
         Map<String, Object> responseMap = new HashMap<>(16);
         responseMap.put("status", "00");
-        responseMap.put("msg", "RibbonGetTest 请求成功");
+        responseMap.put("msg", "GET访问RibbonServer 请求成功");
         responseMap.put("data", "你请求的数据=" + requestMsg);
         return responseMap;
     }
 
-    @PostMapping("/RibbonPostTest")
-    public Map<String, Object> RibbonPostTest(@RequestBody JSONPObject requestMsg) {
+    /**
+     * 测试 POST访问是否正常
+     * @Method: POST
+     * @author show
+     * @date 15:38 2019/6/9
+     * @param requestMsg 入参
+     */
+    @PostMapping("/RibbonTest")
+    public Map<String, Object> ribbonPostTest(@RequestBody Map requestMsg) {
 
         log.info("接收到数据为：{}", requestMsg);
         Map<String, Object> responseMap = new HashMap<>(16);
         responseMap.put("status", "00");
-        responseMap.put("msg", "RibbonPostTest 请求成功");
+        responseMap.put("msg", "POST访问RibbonServer 请求成功");
         responseMap.put("data", "你请求的数据=" + requestMsg);
         return responseMap;
     }
