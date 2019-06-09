@@ -1,10 +1,8 @@
 package com.show.spring.cloud.ribbon.server.controller;
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,18 +24,18 @@ public class RibbonController {
         Map<String, Object> responseMap = new HashMap<>(16);
         responseMap.put("status", "00");
         responseMap.put("msg", "RibbonGetTest 请求成功");
-        responseMap.put("data", "");
+        responseMap.put("data", "你请求的数据=" + requestMsg);
         return responseMap;
     }
 
     @PostMapping("/RibbonPostTest")
-    public Map<String, Object> RibbonPostTest(String requestMsg) {
+    public Map<String, Object> RibbonPostTest(@RequestBody JSONPObject requestMsg) {
 
         log.info("接收到数据为：{}", requestMsg);
         Map<String, Object> responseMap = new HashMap<>(16);
         responseMap.put("status", "00");
         responseMap.put("msg", "RibbonPostTest 请求成功");
-        responseMap.put("data", "");
+        responseMap.put("data", "你请求的数据=" + requestMsg);
         return responseMap;
     }
 }
