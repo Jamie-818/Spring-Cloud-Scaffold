@@ -9,4 +9,9 @@
 ## 该项目暂时只包含以下组件
 
 - Eureka 注册中心(spring-cloud-eureka)
-- Config 配置中心(spring-cloud-config)
+- Config 配置中心
+  - spring-cloud-config
+  - spring-cloud-config-client
+- Ribbon 负载均衡
+  - spring-cloud-ribbon-server
+  - spring-cloud-ribbon-client
