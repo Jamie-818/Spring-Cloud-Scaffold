@@ -15,11 +15,11 @@ import java.util.Map;
  * @date 22:59 2019/6/6
  */
 @RestController
-@RequestMapping("RibbonServer")
+@RequestMapping("/RibbonServer")
 @Slf4j
 public class RibbonController {
 
-    @GetMapping("RibbonGetTest")
+    @GetMapping("/RibbonGetTest")
     public Map<String, Object> RibbonGetTest(String requestMsg) {
 
         log.info("接收到数据为：{}", requestMsg);
@@ -30,7 +30,7 @@ public class RibbonController {
         return responseMap;
     }
 
-    @PostMapping("RibbonPostTest")
+    @PostMapping("/RibbonPostTest")
     public Map<String, Object> RibbonPostTest(String requestMsg) {
 
         log.info("接收到数据为：{}", requestMsg);
