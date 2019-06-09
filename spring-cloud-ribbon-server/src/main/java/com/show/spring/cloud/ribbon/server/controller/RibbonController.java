@@ -29,8 +29,8 @@ public class RibbonController {
         log.info("接收到数据为：{}", requestMsg);
         Map<String, Object> responseMap = new HashMap<>(16);
         responseMap.put("status", "00");
-        responseMap.put("msg", "GET访问RibbonServer 请求成功");
-        responseMap.put("data", "你请求的数据=" + requestMsg);
+        responseMap.put("msg", "GET 访问 RibbonServer 请求成功");
+        responseMap.put("data", "你请求的数据:" + requestMsg);
         return responseMap;
     }
 
@@ -47,8 +47,8 @@ public class RibbonController {
         log.info("接收到数据为：{}", requestMsg);
         Map<String, Object> responseMap = new HashMap<>(16);
         responseMap.put("status", "00");
-        responseMap.put("msg", "POST访问RibbonServer 请求成功");
-        responseMap.put("data", "你请求的数据=" + requestMsg);
+        responseMap.put("msg", "POST 访问 RibbonServer 请求成功");
+        responseMap.put("data", "你请求的数据:" + requestMsg);
         return responseMap;
     }
 }
