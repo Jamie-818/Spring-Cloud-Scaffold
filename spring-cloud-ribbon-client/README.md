@@ -47,7 +47,7 @@
 
 ---
 
-### 请求方式二 
+### 第二种方式 
 ```java
     @Autowired
     private LoadBalancerClient loadBalancerClient;
@@ -83,7 +83,7 @@
  
 ---
  
-### 请求方式三 (推荐)
+### 第三种方式 (推荐)
 ```java
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
