@@ -14,7 +14,7 @@ import org.springframework.web.client.RestTemplate;
 public class RestTemplateConfig {
 
     @Bean
-    @LoadBalanced
+    @LoadBalanced //添加该注解，可以直接通过服务名找到对应的IP地址
     public RestTemplate restTemplate() {
 
         return new RestTemplate();
