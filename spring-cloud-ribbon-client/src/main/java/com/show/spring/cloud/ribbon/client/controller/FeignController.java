@@ -50,7 +50,7 @@ public class FeignController {
         String requestMsg = "Feign Post 请求 RibbonServer";
         Map<String, Object> map = new HashMap<>(16);
         map.put("requestMsg", requestMsg);
-        Map response = ribbonServerClient.PostRibbonServer(map);
+        Map response = ribbonServerClient.postRibbonServer(map);
         log.info("response={}", response);
         return response;
     }

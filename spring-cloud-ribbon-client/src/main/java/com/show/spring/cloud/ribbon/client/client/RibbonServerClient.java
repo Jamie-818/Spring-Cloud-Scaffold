@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Map;
 
 /**
- * Frign
+ * Feign
  * @author show
  * @date 16:16 2019/6/9
  */
@@ -35,6 +35,6 @@ public interface RibbonServerClient {
      * @return java.util.Map
      */
     @PostMapping("/RibbonServer/RibbonTest")
-    Map PostRibbonServer(@RequestBody Map requestMsg);
+    Map postRibbonServer(@RequestBody Map requestMsg);
 
 }
