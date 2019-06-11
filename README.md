@@ -17,9 +17,15 @@
 ### Eureka 注册中心
   - [spring-cloud-eureka](https://github.com/MrXuan3168/Spring-Cloud-Scaffold/tree/master/spring-cloud-eureka)
     > 启动即可供其他微服务注册
+    
 ### Config 配置中心
   - [spring-cloud-config](https://github.com/MrXuan3168/Spring-Cloud-Scaffold/tree/master/spring-cloud-config)
     > 配置启动即可供其他微服务使用外部配置
+    
 ### Ribbon 负载均衡
-  - [spring-cloud-ribbon](https://github.com/MrXuan3168/Spring-Cloud-Scaffold/tree/master/spring-cloud-ribbon-client)
+  - [spring-cloud-server](https://github.com/MrXuan3168/Spring-Cloud-Scaffold/tree/master/spring-cloud-server)
+    > 提供接口测试，验证配置中心是否正常
+
+### Ribbon 负载均衡
+  - [spring-cloud-ribbon](https://github.com/MrXuan3168/Spring-Cloud-Scaffold/tree/master/spring-cloud-ribbon)
     > 演示如果通过 RestTemplate 及Feign 调用其他微服务
