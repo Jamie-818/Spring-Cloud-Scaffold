@@ -70,4 +70,4 @@ spring:
 ---
 
 #其他微服务如何使用配置中心
- - 请查看 spring-cloud-config-client 项目说明
+ - 请查看 spring-cloud-server 项目说明

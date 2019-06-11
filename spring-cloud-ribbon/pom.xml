@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.show</groupId>
-    <artifactId>spring-cloud-server</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>spring-cloud-server</name>
-    <description>微服务业务代码</description>
+    <artifactId>spring-cloud-ribbon</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>spring-cloud-ribbon</name>
+    <description>SpringCloudRibbon project for Spring Boot</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -22,16 +22,22 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>-->
+<!--        </dependency>-->
+        <!--添加Feign依赖-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

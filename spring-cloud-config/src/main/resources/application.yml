@@ -6,8 +6,35 @@ spring:
       server:
         git:
           uri: https://github.com/MrXuan3168/Spring-Cloud-Config-Repo.git   #git仓库地址，这里存的是各个微服务的配置文件
-          username: 1004108488@qq.com
-          # password: xxx  #配置仓库如果是公开的，可以不输入密码
+          ignore-local-ssh-settings: true #重要！忽略本地ssh配置，使用下面密钥。方便移植（如：容器部署）
+          private-key: |
+            -----BEGIN RSA PRIVATE KEY-----
+            MIIEpQIBAAKCAQEAyOX8TkEonCcNqVyB87voX7Y+Zw+xQicAjxUDFuy91Slc0FNk
+            k2LfWkf1SsXaNysaIFluCJ1jdFul/6RQhxWl4Lw5l+V5UUKLIboa9VSGDOp2gHlv
+            AnBxOUK99St8EULDuVH87ltexmAV3xk6ef0dnknRJARiq5eeZk2zj6u39N8mJ+pW
+            33Cp0n6SqTO6lscEt10BcrjyV2hWt9gPkBiR9FmyTD4MC48wcPkWfXlCAD+jyA94
+            IOVyG26xMHp8wMJhtBLxWHWoC9wMHJ0dWeqRD0DKct074Zz9lnKoSYDyYnXDqv7w
+            PnnTCJWQDewuNNE+Wa7yNawzmErKMbRDe8QumwIDAQABAoIBAQCzrr/TXgPsZiGZ
+            8NtqHA7iTCXUF/z6pdeiIbD5uBSxqqUQzwWNrUkHfoSts/hQj4R2moYHvn1NfQsj
+            cttzdrE+KBt6+Ath2pqGN+YUttyOgMYscnAPRnJ+PGuZ9KKq7YQRJHuM1LwXwajO
+            OcpLgVAUWwFrrWBzCNDrv2NyhKurnrOOg23VQSTotwQTB/7NT5pnCqyqQQHQfm3z
+            +8VnCA4DjY3QqpB+CPm/HnTkxP1C5wFSgFWUma0asXXIpwSxyrw1MsbAJkrfINdT
+            nU00e3tb7QZHCI4c9rcfy3UgvkDAYMY5H6awaAqC5eqVMwgLVcjrxtAwcRKMYUgb
+            AP3ozJnBAoGBAPXBYXM/d9D5ShtOlTiBpAkpkv11C8KWSUZ66IpwoYnh6WeREkX0
+            NgzbVxcuolb1O1n80x8BrwIugl5CvvzJ6yJTc4qSG4MoxY/rjfGdP9WxMKD374f8
+            ogsh47/vhmhhwMHNHLQbPnbcpaTEbtvIzpfbBLIMpNxgLzTr/FSW7U1NAoGBANFF
+            5+esw6j5OiPx7GE3a0XyCuqjcEUGnU5HlaZxVrnB41dIOBov+VYkJjCgzH9TZGwz
+            1i9z6J65modu4cUbAWSfe5s9pc8xOxLCqnjo94dzRQP4/pdBTbw8bzssk+p53qk3
+            r9pyeswIyVJ76tVqllrhIAN5WTmr8xqU9Lk4KJeHAoGBAK7XcB9wTiwsz55x4BQd
+            l7i1DVCpjz5XcbZlB0BHNYZFZas7OQbv4exvuJxTn0fCnQE+sG1k4z/oGvQ5BGwQ
+            s+rt+Evj+xLrVPM5oPj+6UV9FJ3RB2d2Q0ssRz5siPGGan73EK7Kmzwxat+4qS5Q
+            xTqgpcyO1lO7UpqSMil0X0wZAoGAMTApLf8hjhnmXISEduU7xZj6j+QSg2bmmnug
+            5RpGtCqqcN18sksMY/7jKxLgfhzvwa79bPHlf0lI1QRu9JFAZpJFz1tSGb0MkYBH
+            6Vt4stGZKzHfRVYIG3JpApObwMUcXNHF96ZozoRSLZ0KuVbwODQp/icLnc6YuWrB
+            ird0cwkCgYEAg6/blg1b/fQwn0s2LppFJkY5PCrSkCuLVRSAnQCG4Si4LdJpzQL9
+            KPvGI+MIvWhR2FojM9xAL8Glg8AXfLBXRHd90uyobWuSUgfs+LiyIrZwPZOkLqDy
+            Z/cR14pH7YYowtG5cnChDGTG8ospc8GH8koCibnOVGoRrNQ919JEcMg=
+            -----END RSA PRIVATE KEY-----
 eureka:
   client:
     service-url:

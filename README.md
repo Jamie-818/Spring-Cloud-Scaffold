@@ -5,6 +5,12 @@
  - 该项目主要提供 SpringCloud 微服务的搭建脚手架，便于大家可以快速的搭建一个简单的微服务架构。
  
 ---
+## 该项目的启动顺序为
+1. spring-cloud-eureka 提供注册服务
+2. spring-cloud-config 提供配置中心服务
+3. spring-cloud-server 提供接口调用
+
+---
 
 ## 该项目暂时只包含以下组件
 
@@ -14,10 +20,6 @@
 ### Config 配置中心
   - [spring-cloud-config](https://github.com/MrXuan3168/Spring-Cloud-Scaffold/tree/master/spring-cloud-config)
     > 配置启动即可供其他微服务使用外部配置
-  - [spring-cloud-config-client](https://github.com/MrXuan3168/Spring-Cloud-Scaffold/tree/master/spring-cloud-config-client)
-    > 配置中心测试项目
 ### Ribbon 负载均衡
-  - [spring-cloud-ribbon-server](https://github.com/MrXuan3168/Spring-Cloud-Scaffold/tree/master/spring-cloud-ribbon-server)
-      > 提供接口供 ribbon-client 调用
-  - [spring-cloud-ribbon-client](https://github.com/MrXuan3168/Spring-Cloud-Scaffold/tree/master/spring-cloud-ribbon-client)
+  - [spring-cloud-ribbon](https://github.com/MrXuan3168/Spring-Cloud-Scaffold/tree/master/spring-cloud-ribbon-client)
     > 演示如果通过 RestTemplate 及Feign 调用其他微服务

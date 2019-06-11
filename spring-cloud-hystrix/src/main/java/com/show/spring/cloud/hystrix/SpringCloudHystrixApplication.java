@@ -1,18 +1,18 @@
-package com.show.spring.cloud.server;
+package com.show.spring.cloud.hystrix;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * 启动类
- * @author show
+ * @author xuanweiyao
  */
 @SpringBootApplication
-public class SpringCloudServerApplication {
+public class SpringCloudHystrixApplication {
 
     public static void main(String[] args) {
 
-        SpringApplication.run(SpringCloudServerApplication.class, args);
+        SpringApplication.run(SpringCloudHystrixApplication.class, args);
     }
 
 }
