@@ -1,4 +1,4 @@
-package com.show.spring.cloud.hystrix;
+package com.show.spring.cloud.hystrix.config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
