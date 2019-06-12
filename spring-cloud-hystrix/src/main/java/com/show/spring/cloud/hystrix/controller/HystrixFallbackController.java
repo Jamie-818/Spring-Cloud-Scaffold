@@ -1,7 +1,6 @@
 package com.show.spring.cloud.hystrix.controller;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.show.spring.cloud.hystrix.fallback.HystrixFallback;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +19,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/Hystrix")
 @Slf4j
-public class HystrixController {
+public class HystrixFallbackController {
 
     @Autowired
     private RestTemplate restTemplate;
