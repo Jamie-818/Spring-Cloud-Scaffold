@@ -53,6 +53,7 @@ public class HystrixFallbackController {
         throw new RuntimeException("发生异常");
     }
 
+    /**下面是服务降级处理函数*/
     /**
      * 代码异常返回
      * @author show
@@ -80,4 +81,5 @@ public class HystrixFallbackController {
         fallbackMap.put("data", "");
         return fallbackMap;
     }
+
 }
