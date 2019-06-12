@@ -22,10 +22,16 @@
   - [spring-cloud-config](https://github.com/MrXuan3168/Spring-Cloud-Scaffold/tree/master/spring-cloud-config)
     > 配置启动即可供其他微服务使用外部配置
     
-### Ribbon 负载均衡
+### Server 调试接口提供
   - [spring-cloud-server](https://github.com/MrXuan3168/Spring-Cloud-Scaffold/tree/master/spring-cloud-server)
-    > 提供接口测试，验证配置中心是否正常
+    > 提供接口测试
+    
+    > 配置写在配置中心，验证配置中心是否正常
 
 ### Ribbon 负载均衡
   - [spring-cloud-ribbon](https://github.com/MrXuan3168/Spring-Cloud-Scaffold/tree/master/spring-cloud-ribbon)
     > 演示如果通过 RestTemplate 及Feign 调用其他微服务
+
+### Hystrix 断路器
+  - [spring-cloud-hystrix](https://github.com/MrXuan3168/Spring-Cloud-Scaffold/tree/master/spring-cloud-hystrix)
+    > 演示服务降级及处理，提供了运行异常、微服务间调用异常、微服务间调用超时的处理案例。
