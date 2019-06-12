@@ -16,38 +16,25 @@ import java.util.Map;
 @Slf4j
 public class HystrixController {
     /**
-     * 测试 GET访问是否正常
+     * 超时Server接口
      * @Method: GET
      * @author show
      * @date 15:38 2019/6/9
-     * @param requestMsg 入参
      */
-    @GetMapping("/HystrixTest")
-    public Map<String, Object> hystrixServerGetTest(String requestMsg) {
+    @GetMapping("/HystrixOverTimeTest")
+    public Map<String, Object> hystrixOverTimeTest() {
+        // 设置睡眠时间
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-        log.info("接收到数据为：{}", requestMsg);
         Map<String, Object> responseMap = new HashMap<>(16);
         responseMap.put("status", "00");
-        responseMap.put("msg", "GET 访问 HystrixServer 请求成功");
-        responseMap.put("data", "你请求的数据:" + requestMsg);
+        responseMap.put("msg", "GET 访问 HystrixOverTimeTest 请求成功");
+        responseMap.put("data", "");
         return responseMap;
     }
 
-    /**
-     * 测试 POST访问是否正常
-     * @Method: POST
-     * @author show
-     * @date 15:38 2019/6/9
-     * @param requestMsg 入参
-     */
-    @PostMapping("/HystrixTest")
-    public Map<String, Object> hystrixPostTest(@RequestBody Map requestMsg) {
-
-        log.info("接收到数据为：{}", requestMsg);
-        Map<String, Object> responseMap = new HashMap<>(16);
-        responseMap.put("status", "00");
-        responseMap.put("msg", "POST 访问 HystrixServer 请求成功");
-        responseMap.put("data", "你请求的数据:" + requestMsg);
-        return responseMap;
-    }
 }
