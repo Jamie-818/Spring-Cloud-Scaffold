@@ -6,6 +6,6 @@ eureka:
 #    register-with-eureka: false #不显示在注册中心
 spring:
   application:
-    name: eureka2
+    name: eureka
 server:
   port: 8762
