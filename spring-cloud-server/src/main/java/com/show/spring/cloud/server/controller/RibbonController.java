@@ -1,9 +1,9 @@
 package com.show.spring.cloud.server.controller;
 
+import com.show.spring.cloud.server.vo.ServerResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -23,14 +23,10 @@ public class RibbonController {
      * @param requestMsg 入参
      */
     @GetMapping("/RibbonTest")
-    public Map<String, Object> ribbonGetTest(String requestMsg) {
+    public ServerResponse ribbonGetTest(String requestMsg) {
 
         log.info("接收到数据为：{}", requestMsg);
-        Map<String, Object> responseMap = new HashMap<>(16);
-        responseMap.put("status", "00");
-        responseMap.put("msg", "GET 访问 RibbonServer 请求成功");
-        responseMap.put("data", "你请求的数据:" + requestMsg);
-        return responseMap;
+        return ServerResponse.createBySuccess("GET 访问 RibbonServer 请求成功", "你请求的数据:" + requestMsg);
     }
 
     /**
@@ -41,13 +37,10 @@ public class RibbonController {
      * @param requestMsg 入参
      */
     @PostMapping("/RibbonTest")
-    public Map<String, Object> ribbonPostTest(@RequestBody Map requestMsg) {
+    public ServerResponse ribbonPostTest(@RequestBody Map requestMsg) {
 
         log.info("接收到数据为：{}", requestMsg);
-        Map<String, Object> responseMap = new HashMap<>(16);
-        responseMap.put("status", "00");
-        responseMap.put("msg", "POST 访问 RibbonServer 请求成功");
-        responseMap.put("data", "你请求的数据:" + requestMsg);
-        return responseMap;
+
+        return ServerResponse.createBySuccess("POST 访问 RibbonServer 请求成功", "你请求的数据:" + requestMsg);
     }
 }
