@@ -3,15 +3,13 @@ package com.show.spring.cloud.hystrix.controller;
 import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
+import com.show.spring.cloud.hystrix.vo.ServerResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 演示默认服务降级处理
@@ -35,7 +33,7 @@ public class HystrixDefaultFallbackController {
      */
     @HystrixCommand
     @GetMapping("/defaultError")
-    public Map defaultError() {
+    public ServerResponse defaultError() {
 
         throw new RuntimeException("发生异常");
     }
@@ -47,10 +45,10 @@ public class HystrixDefaultFallbackController {
      */
     @HystrixCommand
     @GetMapping("/overTimeError")
-    public Map overTimeError() {
+    public ServerResponse overTimeError() {
         //  该接口会延迟2秒返回
         String url = "http://SERVER/HystrixServer/HystrixOverTimeTest";
-        Map responseData = restTemplate.getForObject(url, Map.class);
+        ServerResponse responseData = restTemplate.getForObject(url, ServerResponse.class);
         log.info("请求返回值为：{}", responseData);
         return responseData;
     }
@@ -65,10 +63,10 @@ public class HystrixDefaultFallbackController {
             @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "3000") //配置超时服务降级，默认为1000毫秒
     })
     @GetMapping("/overTime")
-    public Map overTime() {
+    public ServerResponse overTime() {
         //  该接口会延迟2秒返回
         String url = "http://SERVER/HystrixServer/HystrixOverTimeTest";
-        Map responseData = restTemplate.getForObject(url, Map.class);
+        ServerResponse responseData = restTemplate.getForObject(url, ServerResponse.class);
         log.info("请求返回值为：{}", responseData);
         return responseData;
     }
@@ -78,12 +76,8 @@ public class HystrixDefaultFallbackController {
      * @author show
      * @date 15:10 2019/6/12
      */
-    private Map defaultFallback() {
+    private ServerResponse defaultFallback() {
 
-        Map<String, Object> fallbackMap = new HashMap<>(16);
-        fallbackMap.put("status", "99");
-        fallbackMap.put("message", "默认提示：太拥挤了，请稍后再试");
-        fallbackMap.put("data", "");
-        return fallbackMap;
+        return ServerResponse.createByFallbackMessage("默认提示：太拥挤了，请稍后再试");
     }
 }

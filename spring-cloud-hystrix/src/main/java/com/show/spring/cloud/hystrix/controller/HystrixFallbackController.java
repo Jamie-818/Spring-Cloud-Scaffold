@@ -1,6 +1,7 @@
 package com.show.spring.cloud.hystrix.controller;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.show.spring.cloud.hystrix.vo.ServerResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 演示Hystrix
@@ -32,10 +31,10 @@ public class HystrixFallbackController {
      */
     @HystrixCommand(fallbackMethod = "ribbonErrorFallback")
     @GetMapping("/ribbonError")
-    public Map ribbonError() {
+    public ServerResponse ribbonError() {
         // 该URL请求为404
         String url = "http://Server/error";
-        Map responseData = restTemplate.getForObject(url, Map.class);
+        ServerResponse responseData = restTemplate.getForObject(url, ServerResponse.class);
         log.info("返回值为:{}", responseData);
         return responseData;
     }
@@ -48,7 +47,7 @@ public class HystrixFallbackController {
      */
     @HystrixCommand(fallbackMethod = "runtimeErrorFallback")
     @GetMapping("/runtimeError")
-    public Map runtimeError() {
+    public ServerResponse runtimeError() {
 
         throw new RuntimeException("发生异常");
     }
@@ -59,13 +58,9 @@ public class HystrixFallbackController {
      * @author show
      * @date 15:11 2019/6/12
      */
-    private Map ribbonErrorFallback() {
+    private ServerResponse ribbonErrorFallback() {
 
-        Map<String, Object> fallbackMap = new HashMap<>(16);
-        fallbackMap.put("status", "99");
-        fallbackMap.put("message", "断路器降级启动，请求异常");
-        fallbackMap.put("data", "");
-        return fallbackMap;
+        return ServerResponse.createByFallbackMessage("断路器降级启动，请求异常");
     }
 
     /**
@@ -73,13 +68,9 @@ public class HystrixFallbackController {
      * @author show
      * @date 15:10 2019/6/12
      */
-    private Map runtimeErrorFallback() {
+    private ServerResponse runtimeErrorFallback() {
 
-        Map<String, Object> fallbackMap = new HashMap<>(16);
-        fallbackMap.put("status", "99");
-        fallbackMap.put("message", "断路器降级启动，运行异常");
-        fallbackMap.put("data", "");
-        return fallbackMap;
+        return ServerResponse.createByFallbackMessage("断路器降级启动，运行异常");
     }
 
 }
