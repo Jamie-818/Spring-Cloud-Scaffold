@@ -1,5 +1,6 @@
 package com.show.spring.cloud.ribbon.controller;
 
+import com.show.spring.cloud.ribbon.vo.ServerResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
@@ -36,12 +37,12 @@ public class RestTemplateController {
      * @date 13:58 2019/6/9
      */
     @GetMapping("/RibbonServer/1")
-    public Map getRibbonServer1() {
+    public ServerResponse getRibbonServer1() {
         // 新建对象
         RestTemplate restTemplate = new RestTemplate();
         //请求目标地址
         String requestMsg = "方式一 GET 请求 RibbonServer";
-        Map response = restTemplate.getForObject("http://localhost:8000/RibbonServer/RibbonTest?requestMsg=" + requestMsg, Map.class);
+        ServerResponse response = restTemplate.getForObject("http://localhost:8000/RibbonServer/RibbonTest?requestMsg=" + requestMsg, ServerResponse.class);
         log.info("response={}", response);
         return response;
     }
@@ -54,12 +55,12 @@ public class RestTemplateController {
      * @date 13:58 2019/6/9
      */
     @PostMapping("/RibbonServer/1")
-    public Map postRibbonServer1() {
+    public ServerResponse postRibbonServer1() {
         // 新建对象
         RestTemplate restTemplate = new RestTemplate();
         //请求目标地址
         String requestMsg = "方式一 POST 请求 RibbonServer";
-        Map response = restTemplate.postForObject("http://localhost:8000/RibbonServer/RibbonTest", getRequestParam(requestMsg), Map.class);
+        ServerResponse response = restTemplate.postForObject("http://localhost:8000/RibbonServer/RibbonTest", getRequestParam(requestMsg), ServerResponse.class);
         log.info("response={}", response);
         return response;
     }
@@ -71,13 +72,13 @@ public class RestTemplateController {
      * @date 15:17 2019/6/9
      */
     @GetMapping("/RibbonServer/2")
-    public Map getRibbonServer2() {
+    public ServerResponse getRibbonServer2() {
         // 获取IP地址
         ServiceInstance choose = loadBalancerClient.choose("SERVER");
         String requestMsg = "方式二 GET 请求 RibbonServer";
         String url = String.format("http://%s:%s", choose.getHost(), choose.getPort() + "/RibbonServer/RibbonTest?requestMsg=" + requestMsg);
         RestTemplate restTemplate = new RestTemplate();
-        Map response = restTemplate.getForObject(url, Map.class);
+        ServerResponse response = restTemplate.getForObject(url, ServerResponse.class);
         log.info("response={}", response);
         return response;
     }
@@ -89,14 +90,14 @@ public class RestTemplateController {
      * @date 15:17 2019/6/9
      */
     @PostMapping("/RibbonServer/2")
-    public Map postRibbonServer2() {
+    public ServerResponse postRibbonServer2() {
         // 获取IP地址
         ServiceInstance choose = loadBalancerClient.choose("SERVER");
         // 组装URL
         String url = String.format("http://%s:%s", choose.getHost(), choose.getPort() + "/RibbonServer/RibbonTest");
         RestTemplate restTemplate = new RestTemplate();
         String requestMsg = "方式二 POST 请求 RibbonServer";
-        Map response = restTemplate.postForObject(url, getRequestParam(requestMsg), Map.class);
+        ServerResponse response = restTemplate.postForObject(url, getRequestParam(requestMsg), ServerResponse.class);
         log.info("response={}", response);
         return response;
     }
@@ -112,10 +113,10 @@ public class RestTemplateController {
      * @date 15:17 2019/6/9
      */
     @GetMapping("/RibbonServer/3")
-    public Map getRibbonServer3() {
+    public ServerResponse getRibbonServer3() {
 
         String requestMsg = "方式三 GET 请求 RibbonServer";
-        Map response = restTemplate.getForObject("http://SERVER/RibbonServer/RibbonTest?requestMsg=" + requestMsg, Map.class);
+        ServerResponse response = restTemplate.getForObject("http://SERVER/RibbonServer/RibbonTest?requestMsg=" + requestMsg, ServerResponse.class);
         log.info("response={}", response);
         return response;
     }
@@ -131,10 +132,10 @@ public class RestTemplateController {
      * @date 15:17 2019/6/9
      */
     @PostMapping("/RibbonServer/3")
-    public Map postRibbonServer3() {
+    public ServerResponse postRibbonServer3() {
 
         String requestMsg = "方式三 POST 请求 RibbonServer";
-        Map response = restTemplate.postForObject("http://SERVER/RibbonServer/RibbonTest", getRequestParam(requestMsg), Map.class);
+        ServerResponse response = restTemplate.postForObject("http://SERVER/RibbonServer/RibbonTest", getRequestParam(requestMsg), ServerResponse.class);
         log.info("response={}", response);
         return response;
     }

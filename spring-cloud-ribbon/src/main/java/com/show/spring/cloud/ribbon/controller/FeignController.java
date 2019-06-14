@@ -1,6 +1,7 @@
 package com.show.spring.cloud.ribbon.controller;
 
 import com.show.spring.cloud.ribbon.client.RibbonServerClient;
+import com.show.spring.cloud.ribbon.vo.ServerResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,10 +31,10 @@ public class FeignController {
      * @return java.util.Map
      */
     @GetMapping("/RibbonServer")
-    public Map getRibbonServer() {
+    public ServerResponse getRibbonServer() {
 
         String requestMsg = "Feign GET 请求 RibbonServer";
-        Map response = ribbonServerClient.getRibbonServer(requestMsg);
+        ServerResponse response = ribbonServerClient.getRibbonServer(requestMsg);
         log.info("response={}", response);
         return response;
     }
@@ -45,12 +46,12 @@ public class FeignController {
      * @return java.util.Map
      */
     @PostMapping("/RibbonServer")
-    public Map postRibbonServer1() {
+    public ServerResponse postRibbonServer1() {
 
         String requestMsg = "Feign Post 请求 RibbonServer";
         Map<String, Object> map = new HashMap<>(16);
         map.put("requestMsg", requestMsg);
-        Map response = ribbonServerClient.postRibbonServer(map);
+        ServerResponse response = ribbonServerClient.postRibbonServer(map);
         log.info("response={}", response);
         return response;
     }

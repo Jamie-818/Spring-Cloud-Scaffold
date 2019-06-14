@@ -1,5 +1,6 @@
 package com.show.spring.cloud.ribbon.client;
 
+import com.show.spring.cloud.ribbon.vo.ServerResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,7 +25,7 @@ public interface RibbonServerClient {
      * @return java.util.Map
      */
     @GetMapping("/RibbonServer/RibbonTest")
-    Map getRibbonServer(@RequestParam("requestMsg") String requestMsg);
+    ServerResponse getRibbonServer(@RequestParam("requestMsg") String requestMsg);
 
     /**
      * 测试请求 RibbonServer
@@ -35,6 +36,6 @@ public interface RibbonServerClient {
      * @return java.util.Map
      */
     @PostMapping("/RibbonServer/RibbonTest")
-    Map postRibbonServer(@RequestBody Map requestMsg);
+    ServerResponse postRibbonServer(@RequestBody Map requestMsg);
 
 }
