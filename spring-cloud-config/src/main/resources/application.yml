@@ -35,6 +35,8 @@ spring:
             KPvGI+MIvWhR2FojM9xAL8Glg8AXfLBXRHd90uyobWuSUgfs+LiyIrZwPZOkLqDy
             Z/cR14pH7YYowtG5cnChDGTG8ospc8GH8koCibnOVGoRrNQ919JEcMg=
             -----END RSA PRIVATE KEY-----
+          #username: xxx
+          #password: xxx
 eureka:
   client:
     service-url:
