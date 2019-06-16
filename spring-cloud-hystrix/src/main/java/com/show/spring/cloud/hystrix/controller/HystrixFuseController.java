@@ -3,7 +3,6 @@ package com.show.spring.cloud.hystrix.controller;
 import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
-import com.show.spring.cloud.hystrix.vo.ServerResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,9 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  *演示服务请求熔断处理
@@ -41,13 +37,13 @@ public class HystrixFuseController {
             @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "60") // 错误率，假如请求数在 requestVolumeThreshold 数上，错误达到该值，则进入断开状态
     })
     @GetMapping("/fuse")
-    public ServerResponse fuseError(@RequestParam("number") int number) {
+    public String fuseError(@RequestParam("number") int number) {
 
         if (number % 2 == 0) {
-            return ServerResponse.createBySuccessMessage("success");
+            return "success";
         } else {
             String url = "http://SERVER/HystrixServer/HystrixOverTimeTest";
-            ServerResponse responseData = restTemplate.getForObject(url, ServerResponse.class);
+            String responseData = restTemplate.getForObject(url, String.class);
             log.info("请求返回值为：{}", responseData);
             return responseData;
         }
@@ -60,8 +56,8 @@ public class HystrixFuseController {
      * @author show
      * @date 15:10 2019/6/12
      */
-    private ServerResponse defaultFallback() {
+    private String defaultFallback() {
 
-        return ServerResponse.createByDefaultFallback();
+        return "默认提示：太拥挤了，请稍后再试";
     }
 }

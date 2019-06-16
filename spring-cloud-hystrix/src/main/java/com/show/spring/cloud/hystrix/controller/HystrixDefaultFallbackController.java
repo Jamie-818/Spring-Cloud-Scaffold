@@ -3,7 +3,6 @@ package com.show.spring.cloud.hystrix.controller;
 import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
-import com.show.spring.cloud.hystrix.vo.ServerResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,7 +32,7 @@ public class HystrixDefaultFallbackController {
      */
     @HystrixCommand
     @GetMapping("/defaultError")
-    public ServerResponse defaultError() {
+    public String defaultError() {
 
         throw new RuntimeException("发生异常");
     }
@@ -45,10 +44,10 @@ public class HystrixDefaultFallbackController {
      */
     @HystrixCommand
     @GetMapping("/overTimeError")
-    public ServerResponse overTimeError() {
+    public String overTimeError() {
         //  该接口会延迟2秒返回
         String url = "http://SERVER/HystrixServer/HystrixOverTimeTest";
-        ServerResponse responseData = restTemplate.getForObject(url, ServerResponse.class);
+        String responseData = restTemplate.getForObject(url, String.class);
         log.info("请求返回值为：{}", responseData);
         return responseData;
     }
@@ -63,10 +62,10 @@ public class HystrixDefaultFallbackController {
             @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "3000") //配置超时服务降级，默认为1000毫秒
     })
     @GetMapping("/overTime")
-    public ServerResponse overTime() {
+    public String overTime() {
         //  该接口会延迟2秒返回
         String url = "http://SERVER/HystrixServer/HystrixOverTimeTest";
-        ServerResponse responseData = restTemplate.getForObject(url, ServerResponse.class);
+        String responseData = restTemplate.getForObject(url, String.class);
         log.info("请求返回值为：{}", responseData);
         return responseData;
     }
@@ -76,8 +75,8 @@ public class HystrixDefaultFallbackController {
      * @author show
      * @date 15:10 2019/6/12
      */
-    private ServerResponse defaultFallback() {
+    private String defaultFallback() {
 
-        return ServerResponse.createByFallbackMessage("默认提示：太拥挤了，请稍后再试");
+        return "默认提示：太拥挤了，请稍后再试";
     }
 }
