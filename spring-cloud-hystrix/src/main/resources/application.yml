@@ -7,3 +7,19 @@ eureka:
   client:
     service-url:
       defaultZone: http://127.0.0.1:8761/eureka/,http://127.0.0.1:8762/eureka/,http://127.0.0.1:8763/eureka/  #向注册中心注册
+
+hystrix:
+  command:
+    default: #全局配置服务配置超时
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 2000
+    overTime:  #单独为某个方法配置超时时间
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 2000
+feign:  #feign使用Hystrix
+  hystrix:
+    enabled: true
