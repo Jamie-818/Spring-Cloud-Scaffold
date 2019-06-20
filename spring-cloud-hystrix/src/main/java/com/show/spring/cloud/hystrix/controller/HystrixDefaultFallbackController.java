@@ -77,6 +77,7 @@ public class HystrixDefaultFallbackController {
      */
     private String defaultFallback() {
 
+        log.info("HystrixDefaultFallbackController类发生异常，触发断路器默认返回");
         return "默认提示：太拥挤了，请稍后再试";
     }
 }

@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-
 /**
  * 演示Hystrix
  * @author show
@@ -59,6 +58,7 @@ public class HystrixFallbackController {
      */
     private String ribbonErrorFallback() {
 
+        log.info("ribbon接口请求ribbon微服务异常，断路器启动");
         return "断路器降级启动，请求异常";
     }
 
@@ -69,6 +69,7 @@ public class HystrixFallbackController {
      */
     private String runtimeErrorFallback() {
 
+        log.info("runtimeError接口发生运行时异常，断路器启动");
         return "断路器降级启动，运行异常";
     }
 

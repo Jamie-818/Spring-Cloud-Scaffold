@@ -1,8 +1,10 @@
 package com.show.spring.cloud.hystrix.client;
 
+import com.show.spring.cloud.hystrix.client.fallback.SpringCloudServerClientFallback;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.Map;
 
 /**
  * Feign
@@ -10,8 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @date 16:16 2019/6/9
  * fallback 指定服务降级处理类
  */
-@FeignClient(name = "server", fallback = RibbonServerClient.RibbonServerFallback.class)
-public interface RibbonServerClient {
+@FeignClient(name = "server", fallbackFactory = SpringCloudServerClientFallback.class)
+public interface SpringCloudServerClient {
 
     /**
      * 测试请求 Feign 使用 Hystrix
@@ -21,22 +23,17 @@ public interface RibbonServerClient {
      * @return java.lang.String
      */
     @GetMapping("/HystrixServer/HystrixOverTimeTest")
-    String overTime();
+    String feignOverTime();
 
     /**
-     * 服务降级触发类
+     * 测试请求
      * @author xuanweiyao
-     * @date 18:15 2019/6/19
-     * @Component 作为组件
+     * @date 16:30 2019/6/20
+     * @return java.lang.String
      */
-    @Component
-    class RibbonServerFallback implements RibbonServerClient {
+    @GetMapping("/HystrixServer/HystrixFeign")
+    String feign();
 
-        @Override
-        public String overTime() {
-            // 触发服务降级返回
-            return null;
-        }
-    }
+
 
 }

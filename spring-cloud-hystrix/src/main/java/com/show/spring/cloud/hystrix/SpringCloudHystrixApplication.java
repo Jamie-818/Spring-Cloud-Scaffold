@@ -2,6 +2,7 @@ package com.show.spring.cloud.hystrix;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * 启动类
@@ -12,6 +13,7 @@ import org.springframework.cloud.client.SpringCloudApplication;
  * - @EnableCircuitBreaker  断路器注解
  */
 @SpringCloudApplication
+@EnableFeignClients
 public class SpringCloudHystrixApplication {
 
     public static void main(String[] args) {

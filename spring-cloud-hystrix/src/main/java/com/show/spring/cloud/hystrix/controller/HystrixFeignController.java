@@ -1,6 +1,8 @@
 package com.show.spring.cloud.hystrix.controller;
 
-import com.show.spring.cloud.hystrix.client.RibbonServerClient;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.show.spring.cloud.hystrix.client.SpringCloudServerClient;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,15 +14,25 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 18:22 2019/6/19
  */
 @RestController
+@Slf4j
 @RequestMapping("/Hystrix")
 public class HystrixFeignController {
+
     @Autowired
-    private RibbonServerClient ribbonServerClient;
+    private SpringCloudServerClient springCloudServerClient;
 
     @GetMapping("/FeignHystrixTestOverTime")
+    @HystrixCommand
     public String feignHystrixTestOverTime() {
 
-        return ribbonServerClient.overTime();
+        return springCloudServerClient.feignOverTime();
+    }
+
+    @GetMapping("/FeignHystrixTest")
+    @HystrixCommand
+    public String feignHystrixTest() {
+
+        return springCloudServerClient.feign();
     }
 
 }
