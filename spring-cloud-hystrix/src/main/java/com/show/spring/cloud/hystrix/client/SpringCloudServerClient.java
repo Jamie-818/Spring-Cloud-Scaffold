@@ -1,10 +1,8 @@
 package com.show.spring.cloud.hystrix.client;
 
-import com.show.spring.cloud.hystrix.client.fallback.SpringCloudServerClientFallback;
+import com.show.spring.cloud.hystrix.client.fallbackImpl.SpringCloudServerClientFallback;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import java.util.Map;
 
 /**
  * Feign

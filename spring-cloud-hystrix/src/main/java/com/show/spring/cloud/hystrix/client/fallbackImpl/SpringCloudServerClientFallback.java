@@ -1,12 +1,9 @@
-package com.show.spring.cloud.hystrix.client.fallback;
+package com.show.spring.cloud.hystrix.client.fallbackImpl;
 
 import com.show.spring.cloud.hystrix.client.SpringCloudServerClient;
 import feign.hystrix.FallbackFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 服务降级触发类

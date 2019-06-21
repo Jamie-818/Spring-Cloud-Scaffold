@@ -31,7 +31,7 @@ public class HystrixDefaultFallbackController {
      * @HystrixCommand 指定该接口会触发服务降级
      */
     @HystrixCommand
-    @GetMapping("/defaultError")
+    @GetMapping("/DefaultError")
     public String defaultError() {
 
         throw new RuntimeException("发生异常");
@@ -43,7 +43,7 @@ public class HystrixDefaultFallbackController {
      * @date 17:54 2019/6/12
      */
     @HystrixCommand
-    @GetMapping("/overTimeError")
+    @GetMapping("/OverTimeError")
     public String overTimeError() {
         //  该接口会延迟2秒返回
         String url = "http://SERVER/HystrixServer/HystrixOverTimeTest";
@@ -59,9 +59,9 @@ public class HystrixDefaultFallbackController {
      *  @HystrixCommand 自定服务降级策略 对应的默认配置在 HystrixCommandProperties 类里面
      */
     @HystrixCommand(commandProperties = {
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "3000") //配置超时服务降级，默认为1000毫秒
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1500") //配置超时服务降级，默认为1000毫秒
     })
-    @GetMapping("/overTime")
+    @GetMapping("/OverTime")
     public String overTime() {
         //  该接口会延迟2秒返回
         String url = "http://SERVER/HystrixServer/HystrixOverTimeTest";

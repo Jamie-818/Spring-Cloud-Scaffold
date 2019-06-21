@@ -28,7 +28,7 @@ public class HystrixFallbackController {
      * @HystrixCommand 指定异常时执行什么方式
      */
     @HystrixCommand(fallbackMethod = "ribbonErrorFallback")
-    @GetMapping("/ribbonError")
+    @GetMapping("/RibbonError")
     public String ribbonError() {
         // 该URL请求为404
         String url = "http://Server/error";
@@ -44,7 +44,7 @@ public class HystrixFallbackController {
      * @HystrixCommand 指定异常时执行什么方式
      */
     @HystrixCommand(fallbackMethod = "runtimeErrorFallback")
-    @GetMapping("/runtimeError")
+    @GetMapping("/RuntimeError")
     public String runtimeError() {
 
         throw new RuntimeException("发生异常");

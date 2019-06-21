@@ -37,7 +37,7 @@ public class HystrixFuseController {
      * })
      */
     @HystrixCommand
-    @GetMapping("/fuse")
+    @GetMapping("/Fuse")
     public String fuseError(@RequestParam("number") int number) {
 
         if (number % 2 == 0) {
