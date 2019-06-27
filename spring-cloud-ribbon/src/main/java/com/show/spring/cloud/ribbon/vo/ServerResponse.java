@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 /**
  * 前端交互对象
- * @author xuanweiyao
+ * @author show
  * @date 15:40 2018/9/18
  */
 @ToString

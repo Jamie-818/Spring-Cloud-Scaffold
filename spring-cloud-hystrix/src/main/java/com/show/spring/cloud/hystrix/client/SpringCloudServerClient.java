@@ -25,7 +25,7 @@ public interface SpringCloudServerClient {
 
     /**
      * 测试请求
-     * @author xuanweiyao
+     * @author show
      * @date 16:30 2019/6/20
      * @return java.lang.String
      */

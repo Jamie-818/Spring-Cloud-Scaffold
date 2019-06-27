@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 服务降级触发类
- * @author xuanweiyao
+ * @author show
  * @date 18:15 2019/6/19
  * @Component 作为组件
  */
@@ -30,7 +30,7 @@ public class SpringCloudServerClientFallback implements FallbackFactory<SpringCl
 
             /**
              * 测试请求
-             * @author xuanweiyao
+             * @author show
              * @date 16:30 2019/6/20
              * @return java.lang.String
              */

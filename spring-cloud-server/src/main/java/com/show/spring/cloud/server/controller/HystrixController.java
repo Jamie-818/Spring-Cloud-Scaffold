@@ -21,6 +21,8 @@ public class HystrixController {
      */
     @GetMapping("/HystrixOverTimeTest")
     public ServerResponse hystrixOverTimeTest() {
+
+        log.info("GET 访问 HystrixOverTimeTest 请求成功");
         // 设置睡眠时间
         try {
             Thread.sleep(2000);
@@ -28,6 +30,12 @@ public class HystrixController {
             e.printStackTrace();
         }
         return ServerResponse.createBySuccessMessage("GET 访问 HystrixOverTimeTest 请求成功");
+    }
+
+    @GetMapping("/HystrixFeign")
+    public ServerResponse hystrixFeign() {
+        log.info("GET 访问 HystrixFeign 请求成功");
+        return ServerResponse.createBySuccessMessage("GET 访问 HystrixFeign 请求成功");
     }
 
 }

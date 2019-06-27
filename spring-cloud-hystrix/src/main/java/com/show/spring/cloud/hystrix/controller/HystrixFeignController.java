@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Feign 使用 Hystrix 演示类
- * @author xuanweiyao
+ * @author show
  * @date 18:22 2019/6/19
  */
 @RestController

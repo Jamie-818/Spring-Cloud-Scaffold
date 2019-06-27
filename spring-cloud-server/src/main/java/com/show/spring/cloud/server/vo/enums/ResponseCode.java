@@ -5,7 +5,7 @@ import lombok.Getter;
 /**
  * 状态码枚举类
  *
- * @author xuanweiyao
+ * @author show
  * @date 15:40 2018/9/18
  * @param
  * @return
