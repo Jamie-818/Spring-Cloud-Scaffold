@@ -6,7 +6,7 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 
 /**
  * 启动类
- * @author xuanweiyao
+ * @author show
  * @date 10:51 2019/6/11
  * @EnableConfigServer 该注解指定本微服务是配置中心, 其他需要用到注册中心的，都必须添加 Client 注解
  */
