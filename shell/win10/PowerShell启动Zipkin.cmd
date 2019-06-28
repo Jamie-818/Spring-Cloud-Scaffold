@@ -1,0 +1,1 @@
+start powershell "java -jar ../jar/zipkin.jar"
