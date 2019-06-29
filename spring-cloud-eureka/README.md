@@ -1,3 +1,8 @@
+# SpringCloudEureka
+![](https://img.shields.io/badge/SpringBoot-2.1.5.RELEASE-brightgreen.svg)
+![](https://img.shields.io/badge/SpringCloud-Greenwich.SR1-blue.svg)
+![](https://img.shields.io/badge/jdk-1.8.0_151-9cf.svg)
+![](https://img.shields.io/badge/maven-3.5.0-ff69b4.svg)
 
 #说明
 - 该项目为 Eureka 的脚手架工具，提供服务注册功能，该项目可以单实例启动，或者做高可用注册中心使用。

@@ -1,0 +1,51 @@
+HELP.md
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+/build/
+
+### VS Code ###
+.vscode/
+rebel.xml
+spring-cloud-config/.rebel.xml.bak
+spring-cloud-config/src/main/resources/rebel.xml
+spring-cloud-config/src/test/
+spring-cloud-config/target/
+spring-cloud-eureka/.rebel.xml.bak
+spring-cloud-eureka/src/main/resources/rebel.xml
+spring-cloud-eureka/src/test/
+spring-cloud-eureka/target/
+spring-cloud-hystrix/.rebel.xml.bak
+spring-cloud-hystrix/src/main/resources/rebel.xml
+spring-cloud-hystrix/src/test/
+spring-cloud-hystrix/target/
+spring-cloud-ribbon/src/main/resources/rebel.xml
+spring-cloud-ribbon/target/
+spring-cloud-server/.rebel.xml.bak
+spring-cloud-server/src/main/resources/rebel.xml
+spring-cloud-server/src/test/
+spring-cloud-sleuth/target/
+spring-cloud-zuul/src/test/
+spring-cloud-zuul/target/

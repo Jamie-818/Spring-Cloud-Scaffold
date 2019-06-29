@@ -1,4 +1,9 @@
 # SpringCloudSleuth
+![](https://img.shields.io/badge/SpringBoot-2.1.5.RELEASE-brightgreen.svg)
+![](https://img.shields.io/badge/SpringCloud-Greenwich.SR1-blue.svg)
+![](https://img.shields.io/badge/jdk-1.8.0_151-9cf.svg)
+![](https://img.shields.io/badge/maven-3.5.0-ff69b4.svg)
+
 > 使用 Sleuth + Zipkin 监控微服务调用链
 ## 为什么追踪微服务调用
    - 在复杂的微服务架构中，我们通常实现一个功能，需要经过N个的微服务，万一接口出现问题，传统情况下，只能一层一层排查，效率慢不说，如果中间服务是不同的人或者团队开发，成本就太大了。
