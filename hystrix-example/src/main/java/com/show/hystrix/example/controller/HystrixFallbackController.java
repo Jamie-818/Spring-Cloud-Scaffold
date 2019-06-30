@@ -31,7 +31,7 @@ public class HystrixFallbackController {
     @GetMapping("/RibbonError")
     public String ribbonError() {
         // 该URL请求为404
-        String url = "http://Server/error";
+        String url = "http://SHOW-SERVER-EXAMPLE/error";
         String responseData = restTemplate.getForObject(url, String.class);
         log.info("返回值为:{}", responseData);
         return responseData;

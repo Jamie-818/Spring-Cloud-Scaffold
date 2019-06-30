@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @date 16:16 2019/6/9
  * fallback 指定服务降级处理类
  */
-@FeignClient(name = "server", fallbackFactory = SpringCloudServerClientFallback.class)
+@FeignClient(name = "SHOW-SERVER-EXAMPLE", fallbackFactory = SpringCloudServerClientFallback.class)
 public interface SpringCloudServerClient {
 
     /**

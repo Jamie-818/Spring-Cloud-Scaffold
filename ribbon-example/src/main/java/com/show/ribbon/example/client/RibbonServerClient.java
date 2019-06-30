@@ -13,7 +13,7 @@ import java.util.Map;
  * @author show
  * @date 16:16 2019/6/9
  */
-@FeignClient(name = "server")
+@FeignClient(name = "SHOW-SERVER-EXAMPLE")
 public interface RibbonServerClient {
     /**
      * 测试请求 RibbonServer

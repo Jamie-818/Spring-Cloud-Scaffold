@@ -73,7 +73,7 @@ public class RestTemplateController {
     @GetMapping("/RibbonServer/2")
     public String getRibbonServer2() {
         // 获取IP地址
-        ServiceInstance choose = loadBalancerClient.choose("SERVER");
+        ServiceInstance choose = loadBalancerClient.choose("SHOW-SERVER-EXAMPLE");
         String requestMsg = "方式二 GET 请求 RibbonServer";
         String url = String.format("http://%s:%s", choose.getHost(), choose.getPort() + "/RibbonServer/RibbonTest?requestMsg=" + requestMsg);
         RestTemplate restTemplate = new RestTemplate();
@@ -91,7 +91,7 @@ public class RestTemplateController {
     @PostMapping("/RibbonServer/2")
     public String postRibbonServer2() {
         // 获取IP地址
-        ServiceInstance choose = loadBalancerClient.choose("SERVER");
+        ServiceInstance choose = loadBalancerClient.choose("SHOW-SERVER-EXAMPLE");
         // 组装URL
         String url = String.format("http://%s:%s", choose.getHost(), choose.getPort() + "/RibbonServer/RibbonTest");
         RestTemplate restTemplate = new RestTemplate();
@@ -115,7 +115,7 @@ public class RestTemplateController {
     public String getRibbonServer3() {
 
         String requestMsg = "方式三 GET 请求 RibbonServer";
-        String response = restTemplate.getForObject("http://SERVER/RibbonServer/RibbonTest?requestMsg=" + requestMsg, String.class);
+        String response = restTemplate.getForObject("http://SHOW-SERVER-EXAMPLE/RibbonServer/RibbonTest?requestMsg=" + requestMsg, String.class);
         log.info("response={}", response);
         return response;
     }
@@ -134,7 +134,7 @@ public class RestTemplateController {
     public String postRibbonServer3() {
 
         String requestMsg = "方式三 POST 请求 RibbonServer";
-        String response = restTemplate.postForObject("http://SERVER/RibbonServer/RibbonTest", getRequestParam(requestMsg), String.class);
+        String response = restTemplate.postForObject("http://SHOW-SERVER-EXAMPLE/RibbonServer/RibbonTest", getRequestParam(requestMsg), String.class);
         log.info("response={}", response);
         return response;
     }

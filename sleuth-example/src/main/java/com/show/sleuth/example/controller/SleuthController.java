@@ -20,7 +20,7 @@ public class SleuthController {
     @GetMapping("/SendServer")
     public String sleuthSendServer() {
 
-        String responseData = restTemplate.getForObject("http://show-server-example-dev/Sleuth", String.class);
+        String responseData = restTemplate.getForObject("http://SHOW-SERVER-EXAMPLE/Sleuth", String.class);
         log.info(responseData);
         return responseData;
     }

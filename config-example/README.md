@@ -66,7 +66,7 @@ spring:
 ---
 
 # 配置中心原理说明
-![配置中心架构](./mdimg/配置中心架构.png)
+![配置中心架构](https://image-show.oss-cn-shenzhen.aliyuncs.com/%E7%AE%80%E4%B9%A6%E5%9B%BE%E7%89%87/%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83.png)
 - 配置中心本质上是从网上的git仓库下载配置文件到本地。
 ```
 2019-06-05 14:34:02.306  INFO 29440 --- [nio-8090-exec-1] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: file:/C:/Users/show/AppData/Local/Temp/config-repo-1965805280546469012/config-client-dev.yml

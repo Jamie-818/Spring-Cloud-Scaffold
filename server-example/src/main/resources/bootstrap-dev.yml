@@ -1,11 +1,11 @@
 spring:
   application:
-    name: show-server-example-dev
+    name: show-server-example
   cloud:
     config:
       discovery:
         enabled: true
-        service-id: CONFIG   # 注册中心里面配置中心的名字
+        service-id: SHOW-CONFIG-EXAMPLE	   # 注册中心里面配置中心的名字
       profile: dev  #配置的环境，你可以起多个配置环境，然后用不同的配置文件
 eureka:
   client:

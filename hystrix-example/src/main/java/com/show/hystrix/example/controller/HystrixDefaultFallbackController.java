@@ -46,7 +46,7 @@ public class HystrixDefaultFallbackController {
     @GetMapping("/OverTimeError")
     public String overTimeError() {
         //  该接口会延迟2秒返回
-        String url = "http://SERVER/HystrixServer/HystrixOverTimeTest";
+        String url = "http://SHOW-SERVER-EXAMPLE/HystrixServer/HystrixOverTimeTest";
         String responseData = restTemplate.getForObject(url, String.class);
         log.info("请求返回值为：{}", responseData);
         return responseData;
@@ -64,7 +64,7 @@ public class HystrixDefaultFallbackController {
     @GetMapping("/OverTime")
     public String overTime() {
         //  该接口会延迟2秒返回
-        String url = "http://SERVER/HystrixServer/HystrixOverTimeTest";
+        String url = "http://SHOW-SERVER-EXAMPLE/HystrixServer/HystrixOverTimeTest";
         String responseData = restTemplate.getForObject(url, String.class);
         log.info("请求返回值为：{}", responseData);
         return responseData;

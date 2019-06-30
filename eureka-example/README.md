@@ -15,8 +15,8 @@
  
 - 在Idea的启动配置里面指定配置文件，我分别为你们准备了3个配置文件用于多实例启动
 
-![文件路径](/mdimg/1.png)
-![配置方式](/mdimg/2.png)
+![文件路径](https://image-show.oss-cn-shenzhen.aliyuncs.com/%E7%AE%80%E4%B9%A6%E5%9B%BE%E7%89%87/eureka1.png)
+![配置方式](https://image-show.oss-cn-shenzhen.aliyuncs.com/%E7%AE%80%E4%B9%A6%E5%9B%BE%E7%89%87/eureka2.png)
 - 左边添加几个启动实例，实例右边的 override parametrs 分别添加不同的启动配置。
 
 ---
