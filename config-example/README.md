@@ -1,4 +1,4 @@
-# SpringCloudConfig
+# Config-Example
 ![](https://img.shields.io/badge/SpringBoot-2.1.5.RELEASE-brightgreen.svg)
 ![](https://img.shields.io/badge/SpringCloud-Greenwich.SR1-blue.svg)
 ![](https://img.shields.io/badge/jdk-1.8.0_151-9cf.svg)
@@ -19,7 +19,7 @@
 ---
 
 # 使用顺序
-1. 检查 SringBoot 版本 和 SpringCloud 的版本是否和 Eureka 一致 
+1. 检查 SpringBoot 版本 和 SpringCloud 的版本是否和 Eureka 一致 
 
    * 本项目 SpringBoot 版本： 2.1.5.RELEASE 
    * 本项目 SpringCloud 版本： Greenwich.SR1
