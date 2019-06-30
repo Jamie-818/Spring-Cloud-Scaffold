@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: show-hystrix-example
+server:
+  port: 9999
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka/,http://127.0.0.1:8762/eureka/,http://127.0.0.1:8763/eureka/  #向注册中心注册
+
+hystrix:
+  command:
+    default: #全局配置服务配置超时
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000 #访问超时时间
+        timeout:
+          enabled: true  #超时发生异常属性关闭
+        circuitBreaker:
+          enabled: true  //开启熔断
+          requestVolumeThreshold: 10 //断路器最少请求数
+          sleepWindowInMilliseconds: 10000 //休眠时间，到了以后，断路器会变成半开关形态，如果再次请求失败，则继续断开
+          errorThresholdPercentage: 60 // 错误率，假如请求数在 requestVolumeThreshold 数上，错误达到该值，则进入断开状态
+feign:
+  hystrix:
+    enabled: false #开启Feign使用Hystrix
+ribbon: #设置ribbon超时时间
+  ConnectTimeout: 250 #Ribbon的连接超时时间
+  ReadTimeout: 2100  #Ribbon的数据读取超时时间
+  maxAutoRetries: 0 #重试次数
+
+#这里有个坑，在Feign+Hystrix的情况下，
+#不要把 hystrix.command.default.execution.isolation:.threadtimeoutInMilliseconds的值设的太低，
+#不然会触发 HystrixRuntime异常(feign timed-out and fallback failed),找不到解决方法
+#把接口时间控制交给ribbon，分别设置 ribbon.ConnectTimeout和 ribbon.ReadTimeout,
+#其中ribbon.ReadTimeout 的时间就是你设置的接口超时时间，hystrix的超时时间，有多大设置多大。
+

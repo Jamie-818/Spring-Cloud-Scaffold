@@ -1,0 +1,30 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka/,http://127.0.0.1:8762/eureka/,http://127.0.0.1:8763/eureka/  #向注册中心注册
+    register-with-eureka: false #不显示在注册中心
+spring:
+  application:
+    name: show-zuul-example
+server:
+  port: 9000
+zuul:
+  routes:
+    # //MyConfig/getConfig/** -> /config/getConfig/**
+    MyConfig: #这个可以随便填
+      path: /MyConfig/**
+      serviceId: config
+      sensitiveHeaders: #设置为空，就会传递cookie    private Set<String> sensitiveHeaders = new LinkedHashSet(Arrays.asList("Cookie", "Set-Cookie", "Authorization")); 默认为不传递
+    server: /MyServer/**  #简便写法
+  ignored-patterns: #禁止该路由访问
+    #- /config/getConfig
+    #- /MyConfig/getConfig
+    - /**/getConfig
+
+#显示路由zuul的端口配置，不配置无法访问 /routes
+# http://127.0.0.1:9000/actuator/routes/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
