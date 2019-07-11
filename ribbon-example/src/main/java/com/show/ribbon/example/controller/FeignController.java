@@ -13,6 +13,7 @@ import java.util.Map;
 
 /**
  * 演示 Feign 的用法
+ *
  * @author show
  * @date 23:41 2019/6/7
  */
@@ -20,38 +21,39 @@ import java.util.Map;
 @RequestMapping("/Feign")
 @Slf4j
 public class FeignController {
-    @Autowired
-    private RibbonServerClient ribbonServerClient;
+  @Autowired private RibbonServerClient ribbonServerClient;
 
-    /**
-     * Feign 访问微服务测试
-     * @author show
-     * @date 16:42 2019/6/9
-     * @return java.util.Map
-     */
-    @GetMapping("/RibbonServer")
-    public String getRibbonServer() {
+  /**
+   * Feign 访问微服务测试
+   *
+   * @author show
+   * @date 16:42 2019/6/9
+   * @return java.util.Map
+   */
+  @GetMapping("/RibbonServer")
+  public String getRibbonServer() {
 
-        String requestMsg = "Feign GET 请求 RibbonServer";
-        String response = ribbonServerClient.getRibbonServer(requestMsg);
-        log.info("response={}", response);
-        return response;
-    }
+    String requestMsg = "Feign GET 请求 RibbonServer";
+    String response = ribbonServerClient.getRibbonServer(requestMsg);
+    log.info("response={}", response);
+    return response;
+  }
 
-    /**
-     * Feign 访问微服务测试
-     * @author show
-     * @date 16:42 2019/6/9
-     * @return java.util.Map
-     */
-    @PostMapping("/RibbonServer")
-    public String postRibbonServer1() {
+  /**
+   * Feign 访问微服务测试
+   *
+   * @author show
+   * @date 16:42 2019/6/9
+   * @return java.util.Map
+   */
+  @PostMapping("/RibbonServer")
+  public String postRibbonServer1() {
 
-        String requestMsg = "Feign Post 请求 RibbonServer";
-        Map<String, Object> map = new HashMap<>(16);
-        map.put("requestMsg", requestMsg);
-        String response = ribbonServerClient.postRibbonServer(map);
-        log.info("response={}", response);
-        return response;
-    }
+    String requestMsg = "Feign Post 请求 RibbonServer";
+    Map<String, Object> map = new HashMap<>(16);
+    map.put("requestMsg", requestMsg);
+    String response = ribbonServerClient.postRibbonServer(map);
+    log.info("response={}", response);
+    return response;
+  }
 }

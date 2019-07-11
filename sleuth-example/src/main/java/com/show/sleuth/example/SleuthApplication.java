@@ -8,21 +8,21 @@ import org.springframework.web.client.RestTemplate;
 
 /**
  * 启动类
+ *
  * @author show
  */
 @SpringBootApplication
 public class SleuthApplication {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        SpringApplication.run(SleuthApplication.class, args);
-    }
+    SpringApplication.run(SleuthApplication.class, args);
+  }
 
-    @Bean
-    @LoadBalanced
-    public RestTemplate restTemplate() {
+  @Bean
+  @LoadBalanced
+  public RestTemplate restTemplate() {
 
-        return new RestTemplate();
-    }
-
+    return new RestTemplate();
+  }
 }

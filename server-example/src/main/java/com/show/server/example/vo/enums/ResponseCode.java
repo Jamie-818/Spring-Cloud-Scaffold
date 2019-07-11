@@ -11,21 +11,18 @@ import lombok.Getter;
  * @return
  */
 public enum ResponseCode {
-    /** 成功 */
-    SUCCESS("00", "SUCCESS"),
-    /** 失败 */
-    ERROR("-01", "ERROR"),
-    /** HyStrix默认返回 */
-    DEFAULT_FALLBACK("99", "DEFAULT_FALLBACK");
-    @Getter
-    private final String code;
-    @Getter
-    private final String desc;
+  /** 成功 */
+  SUCCESS("00", "SUCCESS"),
+  /** 失败 */
+  ERROR("-01", "ERROR"),
+  /** HyStrix默认返回 */
+  DEFAULT_FALLBACK("99", "DEFAULT_FALLBACK");
+  @Getter private final String code;
+  @Getter private final String desc;
 
-    ResponseCode(String code, String desc) {
+  ResponseCode(String code, String desc) {
 
-        this.code = code;
-        this.desc = desc;
-    }
-
+    this.code = code;
+    this.desc = desc;
+  }
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Feign 使用 Hystrix 演示类
+ *
  * @author show
  * @date 18:22 2019/6/19
  */
@@ -18,21 +19,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/Hystrix")
 public class HystrixFeignController {
 
-    @Autowired
-    private SpringCloudServerClient springCloudServerClient;
+  @Autowired private SpringCloudServerClient springCloudServerClient;
 
-    @GetMapping("/FeignHystrixTestOverTime")
-    @HystrixCommand
-    public String feignHystrixTestOverTime() {
+  @GetMapping("/FeignHystrixTestOverTime")
+  @HystrixCommand
+  public String feignHystrixTestOverTime() {
 
-        return springCloudServerClient.feignOverTime();
-    }
+    return springCloudServerClient.feignOverTime();
+  }
 
-    @GetMapping("/FeignHystrixTest")
-    @HystrixCommand
-    public String feignHystrixTest() {
+  @GetMapping("/FeignHystrixTest")
+  @HystrixCommand
+  public String feignHystrixTest() {
 
-        return springCloudServerClient.feign();
-    }
-
+    return springCloudServerClient.feign();
+  }
 }

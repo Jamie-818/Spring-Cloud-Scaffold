@@ -6,6 +6,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * 启动类
+ *
  * @author show
  * @date 10:52 2019/6/11
  */
@@ -13,9 +14,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableFeignClients
 public class RibbonApplication {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        SpringApplication.run(RibbonApplication.class, args);
-    }
-
+    SpringApplication.run(RibbonApplication.class, args);
+  }
 }

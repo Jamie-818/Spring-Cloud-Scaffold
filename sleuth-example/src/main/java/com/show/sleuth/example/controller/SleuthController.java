@@ -8,20 +8,20 @@ import org.springframework.web.client.RestTemplate;
 
 /**
  * 调用server接口，测试zipkin是否跟踪到链路
+ *
  * @author show
  * @date 22:21 2019-06-27
  */
 @RestController
 @Slf4j
 public class SleuthController {
-    @Autowired
-    RestTemplate restTemplate;
+  @Autowired RestTemplate restTemplate;
 
-    @GetMapping("/SendServer")
-    public String sleuthSendServer() {
-
-        String responseData = restTemplate.getForObject("http://SHOW-SERVER-EXAMPLE/Sleuth", String.class);
-        log.info(responseData);
-        return responseData;
-    }
+  @GetMapping("/SendServer")
+  public String sleuthSendServer() {
+    String responseData =
+        restTemplate.getForObject("http://SHOW-SERVER-EXAMPLE/Sleuth", String.class);
+    log.info(responseData);
+    return responseData;
+  }
 }

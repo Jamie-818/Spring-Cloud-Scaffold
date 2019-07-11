@@ -9,27 +9,28 @@ import org.springframework.cloud.netflix.zuul.filters.ZuulProperties;
 
 /**
  * 启动类
- * @author show
- * @EnableZuulProxy 路由注解
+ *
+ * @author show @EnableZuulProxy 路由注解
  */
 @SpringBootApplication
 @EnableZuulProxy
 public class ZuulApplication {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        SpringApplication.run(ZuulApplication.class, args);
-    }
+    SpringApplication.run(ZuulApplication.class, args);
+  }
 
-    /**
-     * 实现动态路由
-     * @author show
-     * @date 20:40 2019-06-26
-     */
-    @ConfigurationProperties("zuul")
-    @RefreshScope
-    public ZuulProperties zuulProperties() {
+  /**
+   * 实现动态路由
+   *
+   * @author show
+   * @date 20:40 2019-06-26
+   */
+  @ConfigurationProperties("zuul")
+  @RefreshScope
+  public ZuulProperties zuulProperties() {
 
-        return new ZuulProperties();
-    }
+    return new ZuulProperties();
+  }
 }
